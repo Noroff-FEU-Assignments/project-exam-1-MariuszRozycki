@@ -1,0 +1,33 @@
+/* header */
+header {
+  width: 100%;
+  min-height: 100px;
+  background-color: var(--very-dark-blue-color);
+}
+
+header .container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.logo {
+  max-width: 200px;
+}
+
+.search-bar {
+  width: 100%;
+  padding: 5px;
+  border-radius: 5px;
+  border: none;
+}
+
+.h1-main {
+  margin-top: -10px;
+}
+
+.main-img--description {
+  font-size: calc(var(--normal-font-size) + 1vw);
+}

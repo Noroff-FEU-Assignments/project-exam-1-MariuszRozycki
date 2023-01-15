@@ -1,0 +1,7 @@
+/* import css styles */
+@import url('variables.css');
+@import url('global.css');
+@import url('home.css');
+@import url('nav.css');
+
+@import url('media-queries.css');

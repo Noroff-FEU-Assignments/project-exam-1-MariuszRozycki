@@ -1,0 +1,42 @@
+/* fonts */
+@font-face {
+  font-family: "Montserrat";
+  src: url("../fonts/Montserrat/Montserrat-Italic-VariableFont_wght.ttf");
+  src: url("../fonts/Montserrat/Montserrat-VariableFont_wght.ttf");
+  src: url("../fonts/Montserrat/static/Montserrat-Bold.ttf");
+}
+
+@font-face {
+  font-family: "Open Sans";
+  src: url("../fonts/Open_Sans/OpenSans-Italic-VariableFont_wdth\,wght.ttf");
+  src: url("../fonts/Open_Sans/OpenSans-VariableFont_wdth\,wght.ttf");
+}
+
+:root {
+  /* colors */
+  --orange-color: #ff5722;
+  --yellow-color: #ffa210;
+  --light-blue-color: #334B84;
+  --dark-blue-color: #243662;
+  --very-dark-blue-color: #121D38;
+  --white-color: #fff;
+  --main-bcg-color: #eaeaea;
+
+  /* font-size standard*/
+  --normal-font-size: 1rem;
+  --medium-font-size: 2rem;
+  --big-font-size: 3rem;
+
+  /* border-radius */
+  --circle-radius: 50%;
+  --big-radius: 25px;
+  --middle-radius: 15px;
+  --small-radius: 5px;
+
+  /* box-shadow */
+  --box-shadow: 0px 0px 40px 5px #000;
+
+  /* text-shadow */
+  --text-shadow: 2px 2px 5px #000;
+  --prefix-text-shadow: 4px 5px 4px #000;
+}
