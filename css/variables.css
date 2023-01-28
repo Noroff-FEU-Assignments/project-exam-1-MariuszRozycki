@@ -20,7 +20,7 @@
   --dark-blue-color: #243662;
   --very-dark-blue-color: #121D38;
   --white-color: #fff;
-  --main-bcg-color: #eaeaea;
+  --white-second-color: #eaeaea;
 
   /* font-size standard*/
   --normal-font-size: 1rem;
@@ -39,4 +39,7 @@
   /* text-shadow */
   --text-shadow: 2px 2px 5px #000;
   --prefix-text-shadow: 4px 5px 4px #000;
+
+  /* screen-breakpoints */
+  --first-break-point: 469px;
 }

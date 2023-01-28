@@ -1,0 +1,36 @@
+@media (min-width: 470px) {
+  header .container {
+    justify-content: space-around;
+  }
+
+  .search-bar {
+    width: 200px;
+  }
+
+  .nav-main .container {
+    padding: 30px 5px 60px;
+  }
+
+  #hamburger-menu {
+    display: none;
+  }
+
+  #nav-main__list {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    height: auto;
+    list-style-type: none;
+  }
+
+  .nav-main__list__item {
+    font-size: calc(var(--normal-font-size) + 1vw);
+  }
+
+  .nav-main__list__item:hover {
+    color: var(--orange-color);
+    transition: .2s;
+  }
+}
+
+/* @media(min-width: 600px) {} */

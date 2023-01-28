@@ -24,8 +24,12 @@ header .container {
   border: none;
 }
 
-.h1-main {
+.h1_main {
   margin-top: -10px;
+}
+
+.h2_sub-heading {
+  font-size: calc(var(--normal-font-size) + 4vw);
 }
 
 .main-img--description {
