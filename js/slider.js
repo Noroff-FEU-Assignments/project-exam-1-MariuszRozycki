@@ -38,25 +38,22 @@ async function getAllPosts() {
           const offset = button.dataset.sliderButton === "next" ? 1 : -1;
 
           if (offset === 1) {
+
             if (i >= results.length) {
               return;
             }
 
             slidePost.innerHTML = "";
             ++number;
-            console.log("number", number);
 
             for (i = number; i < results.length; i++) {
               const result = results[i];
-              console.log("i", i);
 
               if (window.innerWidth < 600) {
                 if (i > number) {
                   break;
                 }
               }
-
-
 
               if (window.innerWidth >= 600) {
                 if (i > number + 2) {
@@ -68,16 +65,46 @@ async function getAllPosts() {
               for (const mainImage of embeddedResult) {
                 const mainImgSrc = mainImage.source_url;
                 renderSlider(i, result, mainImgSrc);
-
-
               }
             }
           }
 
           if (offset === -1) {
-            if (i > number) {
+            if (window.innerWidth < 600) {
+              if (i <= 1) {
+                return;
+              }
+            }
 
-              console.log(i);
+            if (window.innerWidth >= 600) {
+              if (i <= 3) {
+                return;
+              }
+            }
+
+            slidePost.innerHTML = "";
+            --number;
+
+            for (i = number; i < results.length; i++) {
+              const result = results[i];
+
+              if (window.innerWidth < 600) {
+                if (i > number) {
+                  break;
+                }
+              }
+
+              if (window.innerWidth >= 600) {
+                if (i > number + 2) {
+                  break;
+                }
+              }
+
+              const embeddedResult = result._embedded['wp:featuredmedia'];
+              for (const mainImage of embeddedResult) {
+                const mainImgSrc = mainImage.source_url;
+                renderSlider(i, result, mainImgSrc);
+              }
             }
           }
         });
@@ -90,7 +117,6 @@ async function getAllPosts() {
   }
 }
 getAllPosts();
-
 
 function renderSlider(i, result, mainImgSrc) {
   slidePost.innerHTML += `
