@@ -3,28 +3,34 @@ const allPosts = baseUrl + "posts?_embed&per_page=100";
 const slidePost = document.querySelector(".slide-post");
 const buttons = document.querySelectorAll("[data-slider-button]");
 
-
 async function getAllPosts() {
   let i;
   let number = 0;
-
 
   try {
     const response = await fetch(allPosts);
     const results = await response.json();
 
-    for (i = number; i < results.length; i++) {
+    for (i = 0; i < results.length; i++) {
       const result = results[i];
 
-      if (i > 0) {
-        break;
+      if (window.innerWidth < 600) {
+        if (i > number) {
+          break;
+        }
+      }
+
+      if (window.innerWidth >= 600) {
+        if (i > number + 2) {
+          break;
+        }
       }
 
       const embeddedResult = result._embedded['wp:featuredmedia'];
       for (const mainImage of embeddedResult) {
         const mainImgSrc = mainImage.source_url;
 
-        renderSlider(result, mainImgSrc);
+        renderSlider(i, result, mainImgSrc);
       }
 
       buttons.forEach(button => {
@@ -32,31 +38,48 @@ async function getAllPosts() {
           const offset = button.dataset.sliderButton === "next" ? 1 : -1;
 
           if (offset === 1) {
+            if (i >= results.length) {
+              return;
+            }
 
+            slidePost.innerHTML = "";
             ++number;
+            console.log("number", number);
 
             for (i = number; i < results.length; i++) {
               const result = results[i];
+              console.log("i", i);
 
-              if (i > number) {
-                break;
+              if (window.innerWidth < 600) {
+                if (i > number) {
+                  break;
+                }
+              }
+
+
+
+              if (window.innerWidth >= 600) {
+                if (i > number + 2) {
+                  break;
+                }
               }
 
               const embeddedResult = result._embedded['wp:featuredmedia'];
               for (const mainImage of embeddedResult) {
                 const mainImgSrc = mainImage.source_url;
-                slidePost.innerHTML = "";
-                renderSlider(result, mainImgSrc);
+                renderSlider(i, result, mainImgSrc);
+
+
               }
             }
           }
 
           if (offset === -1) {
-            console.log("Offset -1 dziala");
-            console.log(result);
+            if (i > number) {
 
+              console.log(i);
+            }
           }
-
         });
       })
     }
@@ -69,10 +92,10 @@ async function getAllPosts() {
 getAllPosts();
 
 
-function renderSlider(result, mainImgSrc) {
-  if (window.innerWidth < 600) {
-    slidePost.innerHTML += `
+function renderSlider(i, result, mainImgSrc) {
+  slidePost.innerHTML += `
       <div class="slide-post-details">
+      <h1 style="color: white">${i}</h1>
         <h3 class="h3_post-title--heading">${result.title.rendered}</h3>
         <div class="slide-wrapper--img">
           <img src=${mainImgSrc} alt="View over Budva">
@@ -81,20 +104,6 @@ function renderSlider(result, mainImgSrc) {
         <button class="btn btn-post-slide">Go to post</button>
       </div>
     `;
-  }
-
-  if (window.innerWidth > 599) {
-    slidePost.innerHTML += `
-      <div class="slide-post-details">
-        <h3 class="h3_post-title--heading">${result.title.rendered}</h3>
-        <div class="slide-wrapper--img">
-          <img src=${mainImgSrc} alt="View over Budva">
-        </div>
-        ${result.excerpt.rendered}
-        <button class="btn btn-post-slide">Go to post</button>
-      </div>
-    `;
-  }
 }
 
 
@@ -102,44 +111,8 @@ function renderSlider(result, mainImgSrc) {
 
 
 
-  // buttons.forEach(button => {
-  //   button.addEventListener('click', () => {
-  //     const offset = button.dataset.sliderButton === "next" ? 1 : -1;
-  //     const slides = button
-  //       .closest("[data-slider]")
-  //       .querySelector("[data-post]");
-
-  //     const activeSlide = slides.querySelector("[data-active]");
-  //     console.log(activeSlide);
-  //     let newIndex = [...slides.children].indexOf(activeSlide) + offset;
-  //     if (newIndex < 0) newIndex = slides.children.length - 1;
-  //     if (newIndex >= slides.children.length) newIndex = 0;
-
-  //     slides.children[newIndex].dataset.active = true;
-  //     delete activeSlide.dataset.active;
-  //   });
-  // });
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-// for (let arrow of arrowNext) {
-//   arrow.addEventListener('click', (e) => {
-//     e.preventDefault();
-//     sliderPost.classList.toggle("sliders-off");
-//     sliderPost.nextElementSibling.classList.remove("sliders-off");
-//     console.log(arrow);
-//   });
-// }
 
 
