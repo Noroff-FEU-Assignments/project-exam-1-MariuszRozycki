@@ -1,0 +1,14 @@
+.all-posts-container {
+  margin: auto;
+  max-width: 600px;
+}
+
+.all-posts-container .post {
+  margin-bottom: 70px;
+}
+
+.all-posts-container .wp-block-image {
+  margin: 10px auto;
+  height: 200px;
+  width: 100%;
+}

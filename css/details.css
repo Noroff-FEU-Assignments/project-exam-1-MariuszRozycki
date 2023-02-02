@@ -1,0 +1,11 @@
+.post-detail-container {
+  max-width: 600px;
+  margin: auto;
+}
+
+.post-detail-container .wp-block-image {
+  margin: 10px auto;
+  height: 200px;
+  width: 100%;
+  text-align: center;
+}

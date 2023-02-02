@@ -24,14 +24,16 @@ header .container {
   border: none;
 }
 
-.h1_main {
-  margin-top: -10px;
-}
-
 .h2_sub-heading {
-  font-size: calc(var(--normal-font-size) + 4vw);
+  font-size: calc(var(--normal-font-size) + 2vw);
 }
 
 .main-img--description {
-  font-size: calc(var(--normal-font-size) + 1vw);
+  font-size: calc(var(--normal-font-size) + 0.5vw);
+}
+
+.main-img--wrapper img {
+  max-height: 400px;
+  object-position: 70%;
+  margin: auto;
 }

@@ -1,11 +1,17 @@
 const baseUrl = "https://mariuszrozycki.info/trip-blog/wp-json/wp/v2/";
-const allPosts = baseUrl + "posts?_embed&per_page=100";
+const allPosts = baseUrl + "posts?_embed&per_page=100&sticky=true"
 const slidePost = document.querySelector(".slide-post");
 const buttons = document.querySelectorAll("[data-slider-button]");
+const prevBtn = document.querySelector("#previous-arrow");
+const nextBtn = document.querySelector("#next-arrow");
+const queryString = document.location.search;
+const params = new URLSearchParams(queryString);
+const id = params.get("id");
 
 async function getAllPosts() {
   let i;
   let number = 0;
+  let indexOfPostsInSlider = 2;
 
   try {
     const response = await fetch(allPosts);
@@ -13,6 +19,7 @@ async function getAllPosts() {
 
     for (i = 0; i < results.length; i++) {
       const result = results[i];
+      console.log(result);
 
       if (window.innerWidth < 600) {
         if (i > number) {
@@ -21,7 +28,7 @@ async function getAllPosts() {
       }
 
       if (window.innerWidth >= 600) {
-        if (i > number + 2) {
+        if (i > number + indexOfPostsInSlider) {
           break;
         }
       }
@@ -37,56 +44,50 @@ async function getAllPosts() {
         button.addEventListener("click", () => {
           const offset = button.dataset.sliderButton === "next" ? 1 : -1;
 
-          if (offset === 1) {
+          animateToRight();
 
-            if (i >= results.length) {
-              return;
-            }
+          if (i === results.length - 1) {
+            nextBtn.style.display = "none";
+          }
+
+          if (offset === 1) {
+            prevBtn.style.display = "flex";
+
 
             slidePost.innerHTML = "";
             ++number;
-
-            for (i = number; i < results.length; i++) {
-              const result = results[i];
-
-              if (window.innerWidth < 600) {
-                if (i > number) {
-                  break;
-                }
-              }
-
-              if (window.innerWidth >= 600) {
-                if (i > number + 2) {
-                  break;
-                }
-              }
-
-              const embeddedResult = result._embedded['wp:featuredmedia'];
-              for (const mainImage of embeddedResult) {
-                const mainImgSrc = mainImage.source_url;
-                renderSlider(i, result, mainImgSrc);
-              }
-            }
+            renderDataInPosts();
           }
 
           if (offset === -1) {
+
+            animateToLeft();
+
+            nextBtn.style.display = "flex";
+
             if (window.innerWidth < 600) {
-              if (i <= 1) {
-                return;
+              if (i <= 2) {
+                prevBtn.style.display = "none";
               }
             }
 
             if (window.innerWidth >= 600) {
-              if (i <= 3) {
-                return;
+              if (i <= 4) {
+                prevBtn.style.display = "none";
               }
             }
 
             slidePost.innerHTML = "";
             --number;
 
+            renderDataInPosts();
+          }
+
+          /* function renderDataInPosts() */
+          function renderDataInPosts() {
             for (i = number; i < results.length; i++) {
               const result = results[i];
+
 
               if (window.innerWidth < 600) {
                 if (i > number) {
@@ -95,7 +96,7 @@ async function getAllPosts() {
               }
 
               if (window.innerWidth >= 600) {
-                if (i > number + 2) {
+                if (i > number + indexOfPostsInSlider) {
                   break;
                 }
               }
@@ -121,24 +122,46 @@ getAllPosts();
 function renderSlider(i, result, mainImgSrc) {
   slidePost.innerHTML += `
       <div class="slide-post-details">
-      <h1 style="color: white">${i}</h1>
         <h3 class="h3_post-title--heading">${result.title.rendered}</h3>
         <div class="slide-wrapper--img">
           <img src=${mainImgSrc} alt="View over Budva">
         </div>
         ${result.excerpt.rendered}
-        <button class="btn btn-post-slide">Go to post</button>
+        <button><a href="../layout/details.html?id=${result.id}" class="btn btn-post-slide">Read more</a></button>
       </div>
     `;
 }
 
+function removeAnimateToRight() {
+  return new Promise(() => {
+    setTimeout(() => {
+      slidePost.classList.remove("animate-to-right");
+      nextBtn.disabled = false;
+    }, 500);
+  });
+}
+
+function removeAnimateToLeft() {
+  return new Promise(() => {
+    setTimeout(() => {
+      slidePost.classList.remove("animate-to-left");
+      nextBtn.disabled = false;
+    }, 500);
+  });
+}
 
 
+async function animateToRight() {
+  slidePost.classList.add("animate-to-right");
+  nextBtn.disabled = true;
+  const response = await removeAnimateToRight();
+  response;
+}
 
-
-
-
-
-
-
+async function animateToLeft() {
+  slidePost.classList.add("animate-to-left");
+  nextBtn.disabled = true;
+  const response = await removeAnimateToLeft();
+  response;
+}
 

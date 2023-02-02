@@ -24,7 +24,13 @@
         <span id="bar-two" class="bars"></span>
         <span id="bar-three" class="bars"></span>
       </div>
-      <ul id="nav-main__list"></ul>
+      <ul class="nav-main__list">
+        <li><a class="nav-main__list__item active" href="../index.html" title="Trip Blog || Home Page">Home</a></li>
+        <li><a class="nav-main__list__item" href="../layout/about.html" title="Trip Blog || About">About</a></li>
+        <li><a class="nav-main__list__item" href="../layout/all-posts.html" title="Trip Blog || All Posts">All Posts</a>
+        </li>
+        <li><a class="nav-main__list__item" href="../layout/contact.html" title="Trip Blog || Contact">Contact</a></li>
+      </ul>
     </div>
   </nav>
   <main>
@@ -41,7 +47,7 @@
       </div>
       <h2 class="h2_sub-heading">My posts</h2>
       <div class="slider-wrapper">
-        <button id="previous-arrow" class="slider-button" data-slider-button="prev"><i
+        <button id="previous-arrow" class=" slider-button" data-slider-button="prev"><i
             class="fas fa-arrow-circle-left"></i></button>
         <div class="slide-post"></div>
         <button id="next-arrow" class="slider-button" data-slider-button="next"><i
@@ -51,14 +57,17 @@
   </main>
   <footer>
     <div class="container">
-      <p>Mariusz Rozycki</p>
+      <ul onclick="location.href='tel:+4793928270'" class="footer">
+        <li>&copy; 2023 Blog Trip</li>
+        <li>Mariusz Rozycki</li>
+        <li>+47 939 28 270</li>
+      </ul>
     </div>
   </footer>
 
-  <script src="js/variables.js"></script>
   <script src="https://kit.fontawesome.com/136bcbc643.js" crossorigin="anonymous"></script>
-  <script src="js/script.js"></script>
-  <script src="js/slider.js"></script>
+  <script src="js/utilities/nav.js"></script>
+  <script src="js/index.js"></script>
 </body>
 
 </html>

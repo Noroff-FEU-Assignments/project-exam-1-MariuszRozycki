@@ -17,7 +17,6 @@ hamburgerMenu.addEventListener('click', () => {
   barOne.classList.toggle("bar-one");
   barTwo.classList.toggle("bar-two");
   barThree.classList.toggle("bar-three");
-  navMain.classList.toggle("nav-main__on");
 
 
   renderNavHtml(flag);
@@ -26,7 +25,7 @@ hamburgerMenu.addEventListener('click', () => {
 
 function renderNavHtml() {
   if (!flag) {
-    navMainList.classList.add("main-nav__list__on");
+    // navMainList.classList.add("main-nav__list__on");
     navMainList.innerHTML = `
     <li><a class="nav-main__list__item home" href="../index.html" title="Trip Blog || Home Page">Home</a></li>
     <li><a class="nav-main__list__item about" href="../layout/about.html" title="Trip Blog || About">About</a></li>

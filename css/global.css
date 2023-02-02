@@ -14,8 +14,18 @@ body {
   padding: 10px 5px;
 }
 
+ul {
+  padding: 0;
+}
+
+li {
+  list-style-type: none;
+}
+
 a {
+  font-family: "Montserrat";
   text-decoration: none;
+  cursor: pointer;
 }
 
 h1,
@@ -28,17 +38,31 @@ h3 {
   color: var(--dark-blue-color);
 }
 
+h1 {
+  font-size: calc(var(--normal-font-size) + 2.5vw);
+}
+
+h2 {
+  font-size: calc(var(--normal-font-size) + 1.5vw);
+}
+
+
 img {
+  display: block;
   width: 100%;
+  max-width: 600px;
   height: 100%;
   object-fit: cover;
-  border-radius: var(--middle-radius);
+  border-radius: var(--small-radius);
 }
 
 p {
-  font-family: "Open Sans";
+  font-family: "Montserrat";
+  font-weight: lighter;
 }
 
 button {
   border: none;
+  background: none;
+  cursor: pointer;
 }
