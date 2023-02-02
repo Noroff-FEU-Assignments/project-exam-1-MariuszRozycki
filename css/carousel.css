@@ -86,30 +86,65 @@
 
 /* animation */
 @keyframes slide-entrance-to-right {
-
   from {
-    /* opacity: 0; */
     transform: translateX(-100vw);
   }
 
   to {
-    /* opacity: 1; */
     transform: translate(auto);
   }
 }
 
 @keyframes slide-entrance-to-left {
-
   from {
-    /* opacity: 0; */
     transform: translateX(100vw);
   }
 
   to {
-    /* opacity: 1; */
     transform: translate(auto);
   }
 }
+
+@-webkit-keyframes slide-entrance-to-right {
+  from {
+    -webkit-transform: translateX(-100vw);
+  }
+
+  to {
+    -webkit-transform: translate(auto);
+  }
+}
+
+@-moz-keyframes slide-entrance-to-right {
+  from {
+    -moz-transform: translateX(-100vw);
+  }
+
+  to {
+    -moz-transform: translate(auto);
+  }
+}
+
+@-webkit-keyframes slide-entrance-to-left {
+  from {
+    -webkit-transform: translateX(-100vw);
+  }
+
+  to {
+    -webkit-transform: translate(auto);
+  }
+}
+
+@-moz-keyframes slide-entrance-to-left {
+  from {
+    -moz-transform: translateX(-100vw);
+  }
+
+  to {
+    -moz-transform: translate(auto);
+  }
+}
+
 
 .animate-to-right {
   animation-name: slide-entrance-to-right;
