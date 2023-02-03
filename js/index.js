@@ -60,7 +60,7 @@ async function getAllPosts() {
           }
 
           if (offset === -1) {
-
+            console.log(offset);
             animateToLeft();
 
             nextBtn.style.display = "flex";
