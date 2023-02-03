@@ -164,4 +164,3 @@ async function animateToLeft() {
   const response = await removeAnimateToLeft();
   response;
 }
-
