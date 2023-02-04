@@ -12,7 +12,7 @@ async function getDetailPost() {
   const result = await response.json();
 
   title.innerHTML = `${result.title.rendered}`;
-  h1.innerHTML = `${result.title.rendered}`;
+  h1.innerHTML = `Post details about: <span>${result.title.rendered}</span>`;
 
   renderHtml(result);
 }

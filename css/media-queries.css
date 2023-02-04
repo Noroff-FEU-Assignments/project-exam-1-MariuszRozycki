@@ -83,7 +83,7 @@
   }
 
   .slide-post-details {
-    grid-template-rows: minmax(130px, auto) auto minmax(120px, auto) auto;
+    grid-template-rows: minmax(130px, auto) auto minmax(120px, 150px) auto;
   }
 
   .h3_post-title--heading {

@@ -1,3 +1,9 @@
+h1 span {
+  display: block;
+  font-size: larger;
+  text-transform: uppercase;
+}
+
 .post-detail-container {
   max-width: 600px;
   margin: auto;

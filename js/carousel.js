@@ -17,6 +17,7 @@ async function getLastPosts(url) {
     const results = await response.json();
     recentPosts = results;
     localStorage.setItem("RECENT_POSTS", JSON.stringify(recentPosts));
+    getDataFromLocalStorage();
   }
 
   catch (error) {
@@ -32,7 +33,6 @@ function getDataFromLocalStorage() {
 
   for (i = 0; i < recentPosts.length; i++) {
     const data = recentPosts[i];
-    console.log(data);
 
     if (window.innerWidth < 600) {
       if (i > number) {
@@ -47,7 +47,6 @@ function getDataFromLocalStorage() {
     }
 
     const embeddedResult = data._embedded['wp:featuredmedia'];
-    console.log(embeddedResult);
     for (const mainImage of embeddedResult) {
       const mainImgSrc = mainImage.source_url;
 
@@ -74,7 +73,6 @@ function getDataFromLocalStorage() {
         }
 
         if (offset === -1) {
-          console.log(offset);
           animateToLeft();
 
           nextBtn.style.display = "flex";
@@ -126,7 +124,7 @@ function getDataFromLocalStorage() {
     })
   }
 }
-getDataFromLocalStorage();
+// getDataFromLocalStorage();
 
 function renderSlider(i, data, mainImgSrc) {
   slidePost.innerHTML += `
