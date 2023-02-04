@@ -69,7 +69,6 @@
   margin: 0 auto;
   background-color: var(--yellow-color);
   padding: 10px 15px;
-  border: 1px solid var(--very-dark-blue-color);
   border-radius: var(--small-radius);
   color: var(--very-dark-blue-color);
   text-transform: uppercase;
