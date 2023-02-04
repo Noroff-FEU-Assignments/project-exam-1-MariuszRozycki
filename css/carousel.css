@@ -77,6 +77,8 @@
   font-weight: 700;
   max-width: 200px;
   box-shadow: var(--box-shadow);
+  -webkit-box-shadow: var(--box-shadow);
+  -moz-box-shadow: var(--box-shadow);
 }
 
 .h3_post-title--heading {
