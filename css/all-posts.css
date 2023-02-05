@@ -1,14 +1,35 @@
-.all-posts-container {
-  margin: auto;
-  max-width: 600px;
+h2 span {
+  display: block;
+  font-size: larger;
 }
 
-.all-posts-container .post {
+.posts .container {
+  display: grid;
+  justify-content: center;
+}
+
+.posts-container {
+  margin: auto;
+}
+
+.post {
+  border-bottom: 2px solid var(--dark-blue-color);
+}
+
+.post p {
+  margin: 10px 5px;
+}
+
+.posts-container .post {
   margin-bottom: 70px;
 }
 
-.all-posts-container .wp-block-image {
+.wp-block-gallery {
   margin: 10px auto;
+  display: grid;
+  grid-template-columns: 1fr;
+}
+
+.wp-block-image {
   height: 200px;
-  width: 100%;
 }

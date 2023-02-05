@@ -1,6 +1,6 @@
 .slider-wrapper {
-  background-color: var(--light-blue-color);
-  padding: 50px 10px;
+  /* background-color: var(--light-blue-color); */
+  /* padding: 50px 10px; */
   border-radius: var(--small-radius);
   display: grid;
   position: relative;
@@ -10,9 +10,9 @@
 }
 
 .slide-post-details {
-  padding: 30px 10px;
+  padding: 15px 10px;
   background-color: var(--light-blue-color);
-  box-shadow: var(--box-shadow);
+  /* box-shadow: var(--box-shadow); */
   margin: auto;
   border-radius: var(--small-radius);
   display: grid;
@@ -65,16 +65,7 @@
 }
 
 .btn-post-slide {
-  display: block;
-  margin: 0 auto;
-  background-color: var(--yellow-color);
-  padding: 10px 15px;
-  border-radius: var(--small-radius);
-  color: var(--very-dark-blue-color);
-  text-transform: uppercase;
   font-size: calc(var(--normal-font-size) + 1vw);
-  font-weight: 700;
-  max-width: 200px;
   box-shadow: var(--box-shadow);
   -webkit-box-shadow: var(--box-shadow);
   -moz-box-shadow: var(--box-shadow);

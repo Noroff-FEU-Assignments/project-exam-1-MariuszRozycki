@@ -2,6 +2,10 @@ body {
   margin: 0;
   padding: 0;
   background-color: var(--main-bcg-color);
+  display: grid;
+  height: 100vh;
+  flex-direction: column;
+
 }
 
 * {
@@ -64,4 +68,18 @@ button {
   border: none;
   background: none;
   cursor: pointer;
+}
+
+.btn {
+  display: block;
+  margin: 0 auto;
+  background-color: var(--yellow-color);
+  padding: 10px 15px;
+  border-radius: var(--small-radius);
+  color: var(--very-dark-blue-color);
+  text-transform: uppercase;
+  font-weight: 700;
+  max-width: 200px;
+  font-family: 'Montserrat', sans-serif;
+  font-size: var(--normal-font-size);
 }

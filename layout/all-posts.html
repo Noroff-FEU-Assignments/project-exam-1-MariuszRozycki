@@ -13,7 +13,7 @@
 <body>
   <header>
     <div class="container">
-      <img class="logo" src="../images/icons/logo.png" alt="logo">
+      <a href="../index.html"><img class="logo" src="../images/icons/logo.png" alt="logo"></a>
       <input class="search-bar" type="text" placeholder="Search..">
     </div>
   </header>
@@ -35,12 +35,24 @@
       </ul>
     </div>
   </nav>
-  <main>
+  <main class="posts">
     <div class="container">
       <h1>All Posts</h1>
-      <div class="all-posts-container"></div>
+      <div id="first-ten-posts" class="posts-container"></div>
+      <div id="rest-of-posts" class="posts-container"></div>
+      <button class="btn btn-posts">Show more</button>
+      <div class="modal"></div>
     </div>
   </main>
+  <footer class="footer">
+    <div class="container">
+      <ul onclick="location.href='tel:+4793928270'">
+        <li>&copy; 2023 Blog Trip</li>
+        <li>Mariusz Rozycki</li>
+        <li>+47 939 28 270</li>
+      </ul>
+    </div>
+  </footer>
 
   <script src="../js/utilities/nav.js"></script>
   <script src="../js/allPosts.js"></script>

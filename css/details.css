@@ -1,17 +1,49 @@
+.post-container img {
+  cursor: pointer;
+}
+
 h1 span {
   display: block;
   font-size: larger;
-  text-transform: uppercase;
 }
 
-.post-detail-container {
-  max-width: 600px;
-  margin: auto;
+body {
+  position: relative;
 }
 
-.post-detail-container .wp-block-image {
-  margin: 10px auto;
-  height: 200px;
-  width: 100%;
-  text-align: center;
+.modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: 3;
+  background-color: rgba(255, 255, 255, .5);
+  justify-content: center;
+  align-items: center;
+  z-index: 1;
+  display: none;
+}
+
+.modal img {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 90%;
+  height: 60%;
+  border-radius: var(--middle-radius);
+  animation-name: modal-img-entrance;
+  animation-duration: .5s;
+  box-shadow: var(--box-shadow);
+}
+
+@keyframes modal-img-entrance {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
 }

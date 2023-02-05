@@ -1,0 +1,20 @@
+.about {
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: minmax(250px, 300px) auto;
+  gap: 20px;
+}
+
+.about .wp-block-image {
+  order: 0;
+  height: 300px;
+  margin: 0;
+}
+
+.about .wp-block-image img {
+  object-position: center 20%;
+}
+
+.about p {
+  order: 1;
+}

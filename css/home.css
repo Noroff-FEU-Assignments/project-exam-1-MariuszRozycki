@@ -2,7 +2,7 @@
 header {
   width: 100%;
   min-height: 100px;
-  background-color: var(--very-dark-blue-color);
+  background-color: var(--light-blue-color);
 }
 
 header .container {
