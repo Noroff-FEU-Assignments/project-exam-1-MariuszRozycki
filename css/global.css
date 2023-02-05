@@ -1,11 +1,12 @@
+:root {
+  min-height: 100vh;
+  position: relative;
+}
+
 body {
   margin: 0;
   padding: 0;
   background-color: var(--main-bcg-color);
-  display: grid;
-  height: 100vh;
-  flex-direction: column;
-
 }
 
 * {
@@ -82,4 +83,8 @@ button {
   max-width: 200px;
   font-family: 'Montserrat', sans-serif;
   font-size: var(--normal-font-size);
+}
+
+main {
+  margin-bottom: 100px;
 }

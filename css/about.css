@@ -1,7 +1,7 @@
 .about {
   display: grid;
   grid-template-columns: 1fr;
-  grid-template-rows: minmax(250px, 300px) auto;
+  grid-template-rows: minmax(250px, 300px) 1fr;
   gap: 20px;
 }
 
