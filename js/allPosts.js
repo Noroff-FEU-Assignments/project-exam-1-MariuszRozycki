@@ -57,8 +57,8 @@ getAllPosts();
 
 function renderFirsPostsHtml(result, i) {
   firstPostsContainer.innerHTML += `
-  <div class="post" onclick="location.href='../layout/details.html?id=${result.id}'">
-  <h2 class="h2_sub-heading">Post #${i + 1}<span>${result.title.rendered}</span></h2>
+  <div class="post">
+  <h2 onclick="location.href='../layout/details.html?id=${result.id}'" class="h2_sub-heading">Post #${i + 1}<span>${result.title.rendered}</span></h2>
   ${result.content.rendered}
   </div>
 `;
@@ -67,7 +67,7 @@ function renderFirsPostsHtml(result, i) {
 function renderRestOfPostsHtml(result, i) {
   restOfPosts.innerHTML += `
   <div class="post" >
-  <h2 class="h2_sub-heading">Post #${i + 1}<span>${result.title.rendered}</span></h2>
+  <h2 onclick="location.href='../layout/details.html?id=${result.id}'" class="h2_sub-heading">Post #${i + 1}<span>${result.title.rendered}</span></h2>
   ${result.content.rendered}
   </div>
 `;

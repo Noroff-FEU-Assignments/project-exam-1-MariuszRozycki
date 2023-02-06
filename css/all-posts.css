@@ -1,35 +1,57 @@
-h2 span {
-  display: block;
-  font-size: larger;
-}
+ h2 span {
+   display: block;
+   font-size: larger;
+   position: relative;
+   text-align: center;
+   cursor: pointer;
+ }
 
-.posts .container {
-  display: grid;
-  justify-content: center;
-}
+ h2 span::after {
+   position: absolute;
+   content: "";
+   display: block;
+   width: 40%;
+   left: 50%;
+   transform: translateX(-50%);
+   height: 5px;
+   background-color: var(--yellow-color);
+   transition: 1s;
+   margin-top: 6px;
+ }
 
-.posts-container {
-  margin: auto;
-}
+ .all-posts h2:hover span::after {
+   width: 100%;
+   height: 5px;
+ }
 
-.post {
-  border-bottom: 2px solid var(--dark-blue-color);
-}
+ .posts .container {
+   display: grid;
+   justify-content: center;
+ }
 
-.post p {
-  margin: 10px 5px;
-}
+ .posts-container {
+   margin: auto;
+ }
 
-.posts-container .post {
-  margin-bottom: 70px;
-}
+ .post {
+   border-bottom: 2px solid var(--dark-blue-color);
+ }
 
-.wp-block-gallery {
-  margin: 10px auto;
-  display: grid;
-  grid-template-columns: 1fr;
-}
+ .post p {
+   margin: 10px 5px;
+ }
 
-.wp-block-image {
-  height: 200px;
-}
+ .posts-container .post {
+   margin-bottom: 70px;
+ }
+
+ .wp-block-gallery {
+   margin: 10px auto;
+   display: grid;
+   grid-template-columns: 1fr;
+ }
+
+ .wp-block-image {
+   height: 200px;
+   cursor: pointer;
+ }
