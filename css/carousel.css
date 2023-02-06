@@ -54,7 +54,6 @@
   display: grid;
   grid-template-columns: minmax(auto, 400px);
   grid-template-rows: 1fr;
-  position: relative;
 }
 
 .slide-post-details p {
@@ -89,9 +88,9 @@
   }
 
   to {
-    transform: translate(auto);
-    -webkit-transform: translate(auto);
-    -moz-transform: translate(auto);
+    transform: translateX(auto);
+    -webkit-transform: translateX(auto);
+    -moz-transform: translateX(auto);
   }
 }
 
