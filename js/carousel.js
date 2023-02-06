@@ -145,7 +145,7 @@ function removeAnimateToRight() {
     setTimeout(() => {
       slidePost.classList.remove("animate-to-right");
       nextBtn.disabled = false;
-    }, 500);
+    }, 1000);
   });
 }
 
@@ -154,12 +154,12 @@ function removeAnimateToLeft() {
     setTimeout(() => {
       slidePost.classList.remove("animate-to-left");
       nextBtn.disabled = false;
-    }, 500);
+    }, 1000);
   });
 }
 
 
-async function animateToRight() {
+async function animateToRight(event) {
   slidePost.classList.add("animate-to-right");
   nextBtn.disabled = true;
   const response = await removeAnimateToRight();

@@ -110,10 +110,10 @@
 
 .animate-to-right {
   animation-name: slide-entrance-to-right;
-  animation-duration: .5s;
+  animation-duration: 1s;
 }
 
 .animate-to-left {
   animation-name: slide-entrance-to-left;
-  animation-duration: .5s;
+  animation-duration: 1s;
 }
