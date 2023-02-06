@@ -9,6 +9,7 @@ const queryString = document.location.search;
 const params = new URLSearchParams(queryString);
 const id = params.get("id");
 
+localStorage.removeItem("RECENT_POSTS");
 let recentPosts = JSON.parse(localStorage.getItem("RECENT_POSTS")) || [];
 
 async function getLastPosts(url) {
