@@ -153,13 +153,13 @@ function removeAnimateToLeft() {
   return new Promise(() => {
     setTimeout(() => {
       slidePost.classList.remove("animate-to-left");
-      nextBtn.disabled = false;
+      prevBtn.disabled = false;
     }, 1000);
   });
 }
 
 
-async function animateToRight(event) {
+async function animateToRight() {
   slidePost.classList.add("animate-to-right");
   nextBtn.disabled = true;
   const response = await removeAnimateToRight();
@@ -168,7 +168,7 @@ async function animateToRight(event) {
 
 async function animateToLeft() {
   slidePost.classList.add("animate-to-left");
-  nextBtn.disabled = true;
+  prevBtn.disabled = true;
   const response = await removeAnimateToLeft();
   response;
 }
