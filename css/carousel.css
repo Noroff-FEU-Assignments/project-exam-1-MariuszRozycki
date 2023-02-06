@@ -88,9 +88,9 @@
   }
 
   to {
-    transform: translate(0);
-    -webkit-transform: translate(0);
-    -moz-transform: translate(0);
+    transform: translate(auto);
+    -webkit-transform: translate(auto);
+    -moz-transform: translate(auto);
   }
 }
 
