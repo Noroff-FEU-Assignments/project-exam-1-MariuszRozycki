@@ -82,7 +82,7 @@
 /* animation */
 @keyframes slide-entrance-to-right {
   from {
-    opacity: 0;
+    opacity: .5;
     transform: translateX(-100vw);
     -webkit-transform: translateX(-100vw);
     -moz-transform: translateX(-100vw);
@@ -98,7 +98,7 @@
 
 @keyframes slide-entrance-to-left {
   from {
-    opacity: 0;
+    opacity: .5;
     transform: translateX(100vw);
     -webkit-transform: translateX(100vw);
     -moz-transform: translateX(100vw);
