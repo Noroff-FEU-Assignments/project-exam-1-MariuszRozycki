@@ -36,6 +36,35 @@
       </ul>
     </div>
   </nav>
+  <main>
+    <div class="container">
+      <div id="message"></div>
+      <form id="form">
+
+        <label for="name">Name (minimum 6 characters):
+          <input id="name" name="name">
+          <p class="form-error" id="name-error">Field must have minimum 6 characters!</p>
+        </label>
+
+        <label for="subject">Subject (minimum 16 characters):
+          <input id="subject" name="Subject">
+          <p class="form-error" id="subject-error">Field must have minimum 16 characters!</p>
+        </label>
+
+        <label for="email">Email:
+          <input id="email" name="email">
+          <p class="form-error" id="email-error">Write correct e-mail address</p>
+        </label>
+
+        <label for="user-message">Message (minimum 26 characters):
+          <textarea id="user-message" name="user-message"></textarea>
+          <p class="form-error" id="user-message--error">Field must have minimum 26 characters!</p>
+        </label>
+
+        <button class="btn">Submit</button>
+      </form>
+    </div>
+  </main>
   <footer class="footer">
     <div class="container">
       <ul onclick="location.href='tel:+4793928270'">
@@ -47,6 +76,7 @@
   </footer>
 
   <script src="../js/utilities/nav.js"></script>
+  <script src="../js/contact.js"></script>
 </body>
 
 </html>

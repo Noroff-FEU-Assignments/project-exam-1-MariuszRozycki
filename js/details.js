@@ -3,6 +3,7 @@ const queryString = document.location.search;
 const params = new URLSearchParams(queryString);
 const id = params.get("id");
 const url = "https://mariuszrozycki.info/trip-blog/wp-json/wp/v2/posts/" + id + "?_embed";
+console.log(url);
 const h1 = document.querySelector("h1");
 const title = document.querySelector("title");
 const modal = document.querySelector(".modal");

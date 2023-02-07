@@ -1,4 +1,5 @@
 const baseUrl = "https://mariuszrozycki.info/trip-blog/wp-json/wp/v2/";
+const pageHomeUrl = "https://mariuszrozycki.info/trip-blog/wp-json/wp/v2/pages?slug=home";
 const allPosts = baseUrl + "posts?_embed&per_page=100&sticky=true";
 const lastTwelvePosts = baseUrl + "posts?_embed&per_page=12&sticky=true";
 const slidePost = document.querySelector(".slide-post");
@@ -11,6 +12,23 @@ const id = params.get("id");
 
 localStorage.removeItem("RECENT_POSTS");
 let recentPosts = JSON.parse(localStorage.getItem("RECENT_POSTS")) || [];
+
+async function getPageData() {
+  try {
+    const response = await fetch(pageHomeUrl);
+    const results = await response.json();
+
+    console.log(results);
+    for (let result of results) {
+      console.log(result);
+      generateHtml(result);
+    }
+  }
+  catch (error) {
+    console.log(error);
+  }
+}
+getPageData();
 
 async function getLastPosts(url) {
   try {
@@ -55,9 +73,10 @@ function getDataFromLocalStorage() {
     }
 
     buttons.forEach(button => {
-      button.addEventListener("click", () => {
+      button.addEventListener("click", (e) => {
         const offset = button.dataset.sliderButton === "next" ? 1 : -1;
 
+        e.preventDefault();
         animateToRight();
 
         if (i === recentPosts.length - 1) {
