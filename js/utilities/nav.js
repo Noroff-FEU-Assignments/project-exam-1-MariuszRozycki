@@ -11,3 +11,19 @@ hamburgerMenu.addEventListener('click', () => {
   barThree.classList.toggle("bar-three");
   navMainList.classList.toggle("show");
 });
+
+navMainList.addEventListener("click", (event) => {
+  if (
+    event.target.matches("#hamburger-menu") ||
+    event.target.matches(".nav-main__list")
+  ) {
+    barOne.classList.toggle("bar-one");
+    barTwo.classList.toggle("bar-two");
+    barThree.classList.toggle("bar-three");
+    navMainList.classList.toggle("show");
+    console.log("dziala");
+  }
+});
+
+
+
