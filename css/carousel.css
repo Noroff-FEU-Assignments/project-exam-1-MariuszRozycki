@@ -32,7 +32,7 @@
   font-size: calc(var(--normal-font-size) + 2vw);
   padding: 10px;
   border-radius: var(--circle-radius);
-  z-index: 0;
+  z-index: 1;
   position: absolute;
   top: 50%;
   transform: translateY(-50%);
@@ -55,7 +55,7 @@
   grid-template-columns: minmax(auto, 400px);
   grid-template-rows: 1fr;
   position: relative;
-  z-index: -1;
+  z-index: 0;
 }
 
 .slide-post-details p {
