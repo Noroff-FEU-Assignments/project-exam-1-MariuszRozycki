@@ -21,7 +21,6 @@ async function getPageData() {
     console.log(results);
     for (let result of results) {
       console.log(result);
-      generateHtml(result);
     }
   }
   catch (error) {
@@ -77,19 +76,21 @@ function getDataFromLocalStorage() {
         const offset = button.dataset.sliderButton === "next" ? 1 : -1;
 
         e.preventDefault();
-        animateToRight();
+
 
         if (i === recentPosts.length - 1) {
           nextBtn.style.display = "none";
         }
 
         if (offset === 1) {
+          // animateToRightExit();
+          animateToRight();
           prevBtn.style.display = "flex";
-
-
           slidePost.innerHTML = "";
           ++number;
           renderDataInPosts();
+
+
         }
 
         if (offset === -1) {
@@ -168,6 +169,15 @@ function removeAnimateToRight() {
   });
 }
 
+// function removeAnimateToRightExit() {
+//   return new Promise(() => {
+//     setTimeout(() => {
+//       slidePost.classList.remove("animate-to-right-exit");
+//       nextBtn.disabled = false;
+//     }, 1000);
+//   });
+// }
+
 function removeAnimateToLeft() {
   return new Promise(() => {
     setTimeout(() => {
@@ -191,3 +201,15 @@ async function animateToLeft() {
   const response = await removeAnimateToLeft();
   response;
 }
+
+// async function animateToRightExit() {
+//   slidePost.classList.add("animate-to-right-exit");
+//   nextBtn.disabled = true;
+//   const response = await removeAnimateToRightExit();
+//   response;
+// }
+
+// nextBtn.onclick = (e) => {
+//   e.preventDefault();
+//   animateToRightExit();
+// }
