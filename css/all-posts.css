@@ -52,6 +52,7 @@
  }
 
  .post .wp-block-image {
+   margin: 15px;
    height: 200px;
    cursor: pointer;
  }

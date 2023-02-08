@@ -35,7 +35,7 @@ async function getDetailPost() {
 getDetailPost();
 
 function renderHtml(result) {
-  postDetailContainer.innerHTML = `${result.content.rendered}`;
+  postDetailContainer.innerHTML = `<div class="post">${result.content.rendered}<div>`;
 }
 
 modal.addEventListener("click", (event) => {
