@@ -28,11 +28,11 @@
 #previous-arrow,
 #next-arrow {
   color: black;
-  background-color: rgba(255, 255, 255, .5);
+  background-color: rgba(255, 255, 255, .7);
   font-size: calc(var(--normal-font-size) + 2vw);
   padding: 10px;
   border-radius: var(--circle-radius);
-  z-index: 1;
+  z-index: 0;
   position: absolute;
   top: 50%;
   transform: translateY(-50%);
@@ -54,6 +54,8 @@
   display: grid;
   grid-template-columns: minmax(auto, 400px);
   grid-template-rows: 1fr;
+  position: relative;
+  z-index: -1;
 }
 
 .slide-post-details p {
