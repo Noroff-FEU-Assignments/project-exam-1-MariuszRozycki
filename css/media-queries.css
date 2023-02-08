@@ -60,6 +60,12 @@
   .about p {
     width: 60%;
   }
+
+  .slide-post {
+    grid-column: 2/3;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
+  }
 }
 
 @media(min-width: 600px) {
