@@ -2,7 +2,7 @@ const baseUrl = "https://mariuszrozycki.info/trip-blog/wp-json/wp/v2/";
 const pageHomeUrl = baseUrl + "pages?slug=home";
 const allPosts = baseUrl + "posts?_embed&per_page=100&sticky=true";
 const lastTwelvePosts = baseUrl + "posts?_embed&per_page=12&sticky=true";
-const h1HomePage = document.querySelector(".h1_main");
+const homePageWrapper = document.querySelector(".home-page--wrapper");
 const slidePost = document.querySelector(".slide-post");
 const buttons = document.querySelectorAll("[data-slider-button]");
 const prevBtn = document.querySelector("#previous-arrow");
@@ -22,6 +22,7 @@ async function getPageData() {
     console.log(results);
     for (let result of results) {
       console.log(result);
+      renderHtml(result);
     }
   }
   catch (error) {
@@ -30,9 +31,10 @@ async function getPageData() {
 }
 getPageData();
 
-function renderHtml() {
-
+function renderHtml(result) {
+  homePageWrapper.innerHTML = `${result.content.rendered}`;
 }
+
 
 async function getLastPosts(url) {
   try {
@@ -86,7 +88,7 @@ function getDataFromLocalStorage() {
       button.addEventListener("click", (e) => {
         const offset = button.dataset.sliderButton === "next" ? 1 : -1;
 
-        e.preventDefault();
+
 
 
         if (i === recentPosts.length - 1) {
@@ -94,6 +96,7 @@ function getDataFromLocalStorage() {
         }
 
         if (offset === 1) {
+          e.preventDefault();
           // animateToRightExit();
           animateToRight();
           prevBtn.style.display = "flex";
@@ -105,6 +108,7 @@ function getDataFromLocalStorage() {
         }
 
         if (offset === -1) {
+          e.preventDefault();
           animateToLeft();
 
           nextBtn.style.display = "flex";
@@ -161,7 +165,6 @@ function getDataFromLocalStorage() {
     })
   }
 }
-// getDataFromLocalStorage();
 
 function renderSlider(i, data, mainImgSrc) {
   slidePost.innerHTML += `

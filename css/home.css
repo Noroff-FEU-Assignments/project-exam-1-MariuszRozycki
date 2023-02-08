@@ -28,11 +28,16 @@ header .container {
   font-size: calc(var(--normal-font-size) + 2vw);
 }
 
-.main-img--description {
+.home-page--wrapper p {
   font-size: calc(var(--normal-font-size) + 0.5vw);
+  text-align: left;
 }
 
-.main-img--wrapper img {
+.home-page--wrapper .wp-block-image {
+  min-height: 200px;
+}
+
+.home-page--wrapper img {
   max-height: 400px;
   object-position: 70%;
   margin: auto;

@@ -45,13 +45,13 @@
    margin-bottom: 70px;
  }
 
- .wp-block-gallery {
+ .post .wp-block-gallery {
    margin: 10px auto;
    display: grid;
    grid-template-columns: 1fr;
  }
 
- .wp-block-image {
+ .post .wp-block-image {
    height: 200px;
    cursor: pointer;
  }

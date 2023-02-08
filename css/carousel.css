@@ -32,7 +32,7 @@
   font-size: calc(var(--normal-font-size) + 2vw);
   padding: 10px;
   border-radius: var(--circle-radius);
-  z-index: 2;
+  z-index: 1;
   position: absolute;
   top: 50%;
   transform: translateY(-50%);

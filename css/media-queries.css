@@ -8,31 +8,33 @@
   }
 
   .nav-main {
-    background-color: var(--white-color);
-    position: sticky;
-    top: 0;
+    background-color: var(--light-blue-color);
   }
 
   .nav-main .container {
     padding: 10px 15px;
+    border-top: 2px solid var(--white-second-color);
   }
 
   #hamburger-menu {
     display: none;
   }
 
-  .nav-main__list {
+  .nav-main .nav-main__list {
+    padding: 0;
     display: flex;
     flex-direction: row;
     justify-content: space-around;
     height: auto;
     list-style-type: none;
     position: static;
-    background-color: var(--white-color);
+    background-color: transparent;
+    transform: translate(0);
   }
 
   .nav-main__list__item {
     font-size: calc(var(--normal-font-size) + 1vw);
+    background-color: transparent;
   }
 
   .nav-main__list__item:hover {
@@ -40,7 +42,7 @@
     transition: .2s;
   }
 
-  .wp-block-gallery {
+  .post .wp-block-gallery {
     grid-template-columns: 1fr 1fr;
   }
 
@@ -112,7 +114,7 @@
     font-size: var(--normal-font-size);
   }
 
-  .wp-block-gallery {
+  .post .wp-block-gallery {
     grid-template-columns: 1fr 1fr 1fr;
   }
 
