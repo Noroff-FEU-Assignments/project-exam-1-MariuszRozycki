@@ -52,8 +52,9 @@ h1 span {
   box-shadow: var(--box-shadow);
 }
 
-.back-to-posts {
+.post-details button {
   color: var(--very-dark-blue-color);
+  margin: 20px auto;
 }
 
 @keyframes modal-img-entrance {

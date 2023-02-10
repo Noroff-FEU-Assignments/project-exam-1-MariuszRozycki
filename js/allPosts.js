@@ -5,7 +5,6 @@ const restOfPosts = document.querySelector("#rest-of-posts");
 const btnShowMore = document.querySelector(".btn-all--posts");
 const enlargedImgWrapper = document.createElement('div');
 const body = document.querySelector("body");
-const modal = document.querySelector(".modal");
 const queryString = document.location.search;
 const params = new URLSearchParams(queryString);
 const id = params.get("id");
@@ -46,16 +45,6 @@ async function getAllPosts() {
         btnShowMore.innerText = "Show more";
       }
     });
-
-    const images = document.querySelectorAll("figure img");
-
-    images.forEach(el => {
-      el.addEventListener("click", () => {
-        modal.innerHTML = `<img src="${el.getAttribute("src")}" alt="${el.getAttribute("alt")}">`;
-        console.log(el.attributes.alt);
-        modal.style.display = "block";
-      });
-    })
   }
   catch (err) {
     console.log(err);
@@ -90,9 +79,4 @@ function renderRestOfPostsHtml(result, i, mainImgSrc, mainImage) {
 `;
 }
 
-modal.addEventListener("click", (event) => {
-  if (event.target.matches(".modal")) {
-    modal.style.display = "none";
-  }
-})
 
