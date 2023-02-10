@@ -10,6 +10,8 @@ h1 span {
 .post-details {
   display: grid;
   grid-template-columns: 1fr;
+  grid-template-rows: repeat(5, auto);
+  row-gap: 20px;
 }
 
 .wp-block-gallery {
@@ -48,6 +50,10 @@ h1 span {
   animation-name: modal-img-entrance;
   animation-duration: .5s;
   box-shadow: var(--box-shadow);
+}
+
+.back-to-posts {
+  color: var(--very-dark-blue-color);
 }
 
 @keyframes modal-img-entrance {

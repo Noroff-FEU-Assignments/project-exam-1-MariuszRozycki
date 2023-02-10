@@ -60,7 +60,6 @@
 
  .post p {
    margin: 10px 5px;
-   font-size: calc(var(--normal-font-size) + .2vw);
    font-weight: 400;
  }
 

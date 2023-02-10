@@ -27,7 +27,7 @@ header .container {
 
 .home-page--wrapper {
   display: grid;
-  gap: 10px;
+  gap: 20px;
 }
 
 .home-page--wrapper p {
@@ -41,6 +41,5 @@ header .container {
 
 .home-page--wrapper img {
   max-height: 400px;
-  object-position: 70%;
   margin: auto;
 }
