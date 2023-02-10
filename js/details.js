@@ -2,7 +2,7 @@ const postDetailContainer = document.querySelector(".post-container");
 const queryString = document.location.search;
 const params = new URLSearchParams(queryString);
 const id = params.get("id");
-const url = "https://mariuszrozycki.info/trip-blog/wp-json/wp/v2/posts/" + id + "?_embed";
+const url = "https://mariuszrozycki.info/trip-blog/wp-json/wp/v2/posts/" + id;
 console.log(url);
 const h1 = document.querySelector("h1");
 const title = document.querySelector("title");
@@ -14,7 +14,7 @@ async function getDetailPost() {
     const result = await response.json();
 
     title.innerHTML = `${result.title.rendered}`;
-    h1.innerHTML = `Post details about: <span>${result.title.rendered}</span>`;
+    h1.innerHTML = `Post details: <span>${result.title.rendered}</span>`;
 
     renderHtml(result);
 

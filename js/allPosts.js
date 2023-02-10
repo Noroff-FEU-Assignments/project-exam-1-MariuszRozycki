@@ -66,8 +66,8 @@ getAllPosts();
 
 function renderFirsPostsHtml(result, i, mainImgSrc, mainImage) {
   firstPostsContainer.innerHTML += `
-  <div class="post">
-  <h2 onclick="location.href='../layout/details.html?id=${result.id}'" class="h2_sub-heading"><span class="post-number">Post #${i + 1}</span><span class="post-title">${result.title.rendered}</span></h2>
+  <div class="post" onclick="location.href='../layout/details.html?id=${result.id}'">
+  <h2 class="h2_sub-heading"><span class="post-number">Post #${i + 1}</span><span class="post-title">${result.title.rendered}</span></h2>
   <div class="wrapper-img">
           <img src=${mainImgSrc} alt="${mainImage.alt_text}">
         </div>

@@ -168,7 +168,7 @@ function getDataFromLocalStorage() {
 
 function renderSlider(i, data, mainImgSrc) {
   slidePost.innerHTML += `
-      <div class="slide-post-details">
+      <div class="slide-post-details" onclick="location.href='../layout/details.html?id=${data.id}'">
         <h3 class="h3_post-title--heading">${data.title.rendered}</h3>
         <div class="slide-wrapper--img">
           <img src=${mainImgSrc} alt="View over Budva">
