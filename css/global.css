@@ -83,7 +83,7 @@ button {
   background-color: var(--yellow-color);
   padding: 10px 15px;
   border-radius: var(--small-radius);
-  border: 1px solid transparent;
+  border: 1px solid var(--very-dark-blue-color);
   color: var(--very-dark-blue-color);
   text-transform: uppercase;
   font-weight: 700;
@@ -98,7 +98,6 @@ button {
 
 .btn:hover {
   box-shadow: none;
-  transform: translate();
   border: 1px solid var(--very-dark-blue-color);
 }
 
