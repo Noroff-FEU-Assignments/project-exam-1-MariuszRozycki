@@ -21,6 +21,7 @@ async function getPageData() {
 
     for (let result of results) {
       console.log("pageHomeUrl", result.content.rendered);
+      console.log(result.content.rendered);
       renderPageHtml(result);
     }
   }

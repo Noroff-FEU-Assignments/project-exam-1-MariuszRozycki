@@ -66,6 +66,7 @@ img {
 }
 
 p {
+  line-height: 1.5;
   font-family: "Montserrat";
   font-weight: lighter;
   font-size: calc(var(--normal-font-size) + 2px);
