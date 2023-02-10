@@ -7,6 +7,22 @@ h1 span {
   font-size: larger;
 }
 
+.post-details {
+  display: grid;
+  grid-template-columns: 1fr;
+}
+
+.wp-block-gallery {
+  margin: 0;
+  gap: 15px;
+  display: grid;
+}
+
+.post-details .wp-block-image {
+  margin: 0;
+  height: 200px;
+}
+
 .modal {
   position: fixed;
   top: 0;

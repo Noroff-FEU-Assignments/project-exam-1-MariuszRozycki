@@ -15,6 +15,7 @@ header .container {
 
 .logo {
   max-width: 200px;
+  box-shadow: none;
 }
 
 .search-bar {
@@ -24,17 +25,18 @@ header .container {
   border: none;
 }
 
-.h2_sub-heading {
-  font-size: calc(var(--normal-font-size) + 2vw);
+.home-page--wrapper {
+  display: grid;
+  gap: 10px;
 }
 
 .home-page--wrapper p {
-  font-size: calc(var(--normal-font-size) + 0.5vw);
   text-align: left;
+  margin: 0;
 }
 
 .home-page--wrapper .wp-block-image {
-  min-height: 200px;
+  margin: 0;
 }
 
 .home-page--wrapper img {

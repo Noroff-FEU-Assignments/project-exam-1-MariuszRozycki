@@ -10,6 +10,11 @@ hamburgerMenu.addEventListener('click', () => {
   barTwo.classList.toggle("bar-two");
   barThree.classList.toggle("bar-three");
   navMainList.classList.toggle("show");
+
+  if (document.querySelector('[title="Trip Blog || Home Page"]')) {
+    const sliderButtons = document.querySelectorAll(".slider-button");
+    sliderButtons.forEach(button => button.classList.toggle("off"));
+  }
 });
 
 navMainList.addEventListener("click", (event) => {
@@ -21,7 +26,6 @@ navMainList.addEventListener("click", (event) => {
     barTwo.classList.toggle("bar-two");
     barThree.classList.toggle("bar-three");
     navMainList.classList.toggle("show");
-    console.log("dziala");
   }
 });
 

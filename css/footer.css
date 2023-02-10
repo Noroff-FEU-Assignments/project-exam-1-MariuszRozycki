@@ -1,8 +1,7 @@
 footer {
   background-color: var(--light-blue-color);
   font-family: 'Open Sans', 'Arial', sans-serif;
-  color: var(--white-color);
-  font-weight: 500;
+  font-weight: 300;
 }
 
 .footer {
@@ -17,4 +16,5 @@ footer {
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  color: var(--white-color);
 }

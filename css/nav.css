@@ -84,5 +84,5 @@
 }
 
 .active {
-  color: var(--yellow-color);
+  color: var(--active-color);
 }

@@ -16,5 +16,6 @@
 }
 
 .about p {
+  margin: 0;
   order: 1;
 }
