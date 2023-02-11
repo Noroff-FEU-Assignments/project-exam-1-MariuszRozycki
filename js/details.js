@@ -34,7 +34,7 @@ getDetailPost();
 function renderHtml(result) {
   postDetailContainer.innerHTML = `
   <div class="post-details">
-  <button class="btn back-to-posts" onclick="history.back()" title="Trip Blog || ${result.title.rendered}">&lt;&lt; Previous site</button>
+    <button class="btn back-to-posts" onclick="history.back()" title="Trip Blog || ${result.title.rendered}">&lt;&lt; Previous site</button>
     <h1 class="h1_main">Post details: <span>${result.title.rendered}</span></h1>  
     ${result.content.rendered}  
     <button class="btn back-to-posts" onclick="location.href='all-posts.html'" title="Trip Blog || ${result.title.rendered}">&lt;&lt; All posts</button>

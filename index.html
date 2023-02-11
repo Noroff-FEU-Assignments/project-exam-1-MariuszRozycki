@@ -26,7 +26,11 @@
   <header>
     <div class="container">
       <a href="index.html"><img class="logo" src="images/icons/logo.png" alt="logo"></a>
-      <input class="search-bar" type="text" placeholder="Search..">
+      <div class="search">
+        <input id="search-bar" class="search-bar" type="search" placeholder="Search..">
+        <button id="search-button" class="search-button"><i class="fal fas fa-search"></i></button>
+        <div class="search-result"></div>
+      </div>
     </div>
   </header>
   <nav class="nav-main">
@@ -69,6 +73,7 @@
   </footer>
 
   <script src="https://kit.fontawesome.com/136bcbc643.js" crossorigin="anonymous"></script>
+  <script src="js/utilities/search.js"></script>
   <script src="js/utilities/nav.js"></script>
   <script src="js/index.js"></script>
 </body>

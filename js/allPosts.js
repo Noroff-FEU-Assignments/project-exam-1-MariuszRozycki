@@ -17,6 +17,7 @@ async function getAllPosts() {
     const results = await response.json();
     for (let i = 0; i < 10; i++) {
       let result = results[i];
+      console.log(result);
 
       const embeddedResult = result._embedded['wp:featuredmedia'];
       for (const mainImage of embeddedResult) {

@@ -18,11 +18,50 @@ header .container {
   box-shadow: none;
 }
 
+.search {
+  display: flex;
+  gap: 5px;
+  border: 1px solid var(--white-second-color);
+  padding: 5px;
+  border-radius: var(--small-radius);
+  position: relative;
+}
+
 .search-bar {
   width: 100%;
   padding: 5px;
   border-radius: 5px;
   border: none;
+}
+
+.search-button {
+  background-color: var(--white-second-color);
+  display: block;
+  border-radius: var(--small-radius);
+}
+
+.search-result {
+  display: none;
+  position: absolute;
+  width: 100%;
+  min-height: 50vh;
+  background-color: var(--white-color);
+  top: 25px;
+  left: 0;
+  z-index: 2;
+  margin: 20px 0;
+  padding: 5px 10px;
+  border-radius: var(--small-radius);
+}
+
+.search-modal {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.2);
+  display: none;
 }
 
 .home-page--wrapper {
