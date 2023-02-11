@@ -40,6 +40,10 @@ header .container {
   border-radius: var(--small-radius);
 }
 
+.search-button i {
+  color: var(--very-dark-blue-color);
+}
+
 .search-result {
   display: none;
   position: absolute;
