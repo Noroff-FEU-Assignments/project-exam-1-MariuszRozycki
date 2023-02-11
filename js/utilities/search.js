@@ -1,11 +1,13 @@
 const searchButton = document.querySelector("#search-button");
 const searchResult = document.querySelector(".search-result");
+const searchBar = document.querySelector("#search-bar");
 
-searchButton.onclick = () => {
 
-  const searchBar = document.querySelector("#search-bar").value.trim();
-  const categoriesUrl = baseUrl + `categories?search=${searchBar}`;
-  const tagsUrl = baseUrl + `tags?search=${searchBar}`;
+searchButton.addEventListener("click", search);
+
+function search() {
+  const searchBarValue = document.querySelector("#search-bar").value.trim();
+  const tagsUrl = baseUrl + `tags?search=${searchBarValue}`;
   const postsUrl = baseUrl + "posts?_embed&per_page=100&sticky=true";
 
   async function getData() {
@@ -22,7 +24,7 @@ searchButton.onclick = () => {
         for (let postTag of resultsPostTags) {
           if (el.id === postTag) {
 
-            if (searchBar === "") {
+            if (searchBarValue === "") {
               return null;
             } else {
               searchResult.style.display = "block";
@@ -52,3 +54,18 @@ searchButton.onclick = () => {
     }
   })
 }
+
+
+searchBar.addEventListener("keypress", function (event) {
+  if (event.key === "Enter") {
+    event.preventDefault();
+    search();
+  }
+});
+
+document.onkeydown = function (event) {
+  if (event.key == "Escape") {
+    searchResult.style.display = "none";
+    searchResult.innerHTML = "";
+  }
+};
