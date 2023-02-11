@@ -1,3 +1,4 @@
+const url = "https://mariuszrozycki.info/trip-blog/wp-json/wp/v2/";
 const searchButton = document.querySelector("#search-button");
 const searchResult = document.querySelector(".search-result");
 const searchBar = document.querySelector("#search-bar");
@@ -7,8 +8,8 @@ searchButton.addEventListener("click", search);
 
 function search() {
   const searchBarValue = document.querySelector("#search-bar").value.trim();
-  const tagsUrl = baseUrl + `tags?search=${searchBarValue}`;
-  const postsUrl = baseUrl + "posts?_embed&per_page=100&sticky=true";
+  const tagsUrl = url + `tags?search=${searchBarValue}`;
+  const postsUrl = url + "posts?_embed&per_page=100&sticky=true";
 
   async function getData() {
     const responseTags = await fetch(tagsUrl);
