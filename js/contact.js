@@ -17,7 +17,6 @@ async function getDataContactPage(url) {
     const results = await response.json();
 
     for (let result of results) {
-      console.log(result);
       h1Contact.innerHTML = `
       ${result.title.rendered}
       `;
@@ -78,7 +77,6 @@ form.addEventListener("submit", validateForm);
 function formCorrectlyValidated() {
   if (checkLength(userName.value, 5) && (checkLength(subject.value, 15)) && (checkEmail(email.value)) && (checkLength(userMessage.value, 25))) {
     message.innerHTML = `<p class="success">Your message has been sent.</p>`;
-    console.log(message);
     form.reset();
   }
 }

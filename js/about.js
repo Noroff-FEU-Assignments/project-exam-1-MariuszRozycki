@@ -2,9 +2,9 @@ const pageAboutUrl = "https://mariuszrozycki.info/trip-blog/wp-json/wp/v2/pages?
 
 const about = document.querySelector(".about");
 
-async function getPageData() {
+async function getPageData(url) {
   try {
-    const response = await fetch(pageAboutUrl);
+    const response = await fetch(url);
     const results = await response.json();
 
     for (let result of results) {
@@ -13,10 +13,10 @@ async function getPageData() {
   }
 
   catch (error) {
-    console.log(error);
+    about.innerHTML = displayError(error);
   }
 }
-getPageData();
+getPageData(pageAboutUrl);
 
 function generateHtml(result) {
   about.innerHTML = `${result.content.rendered}</div>`;

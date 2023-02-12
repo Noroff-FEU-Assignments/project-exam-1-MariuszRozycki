@@ -1,4 +1,4 @@
-.error {
+/* .error {
   margin: 30px auto;
   color: red;
   background-color: rgba(255, 0, 0, .1);
@@ -8,7 +8,7 @@
   width: 50%;
   text-align: center;
   font-weight: 600;
-}
+} */
 
 
 /* contact */
@@ -44,7 +44,6 @@ label {
 textarea,
 label,
 input {
-  /* width: 100%; */
   padding: 10px;
 }
 

@@ -1,8 +1,8 @@
 const baseUrl = "https://mariuszrozycki.info/trip-blog/wp-json/wp/v2/";
 const pageHomeUrl = baseUrl + "pages?slug=home";
-const allPosts = baseUrl + "posts?_embed&per_page=100&sticky=true";
 const lastTwelvePosts = baseUrl + "posts?_embed&per_page=12&sticky=true";
 const homePageWrapper = document.querySelector(".home-page--wrapper");
+const sliderWrapper = document.querySelector(".slider-wrapper");
 const slidePost = document.querySelector(".slide-post");
 const buttons = document.querySelectorAll("[data-slider-button]");
 const prevBtn = document.querySelector(".previous-arrow");
@@ -24,7 +24,7 @@ async function getPageData(url) {
     }
   }
   catch (error) {
-    displayError(error);
+    homePageWrapper.innerHTML = displayError(error);
   }
 }
 getPageData(pageHomeUrl);
@@ -72,7 +72,6 @@ async function getLastPosts(url) {
 
       for (const mainImage of embeddedResult) {
         const mainImgSrc = mainImage.source_url;
-        console.log(mainImage);
         renderSlider(i, data, mainImgSrc);
       }
 
@@ -154,7 +153,7 @@ async function getLastPosts(url) {
   }
 
   catch (error) {
-    displayError(error);
+    sliderWrapper.innerHTML = displayError(error);
   }
 }
 getLastPosts(lastTwelvePosts);
