@@ -7,19 +7,15 @@ async function getPageData() {
     const response = await fetch(pageAboutUrl);
     const results = await response.json();
 
-    console.log(results);
     for (let result of results) {
-      console.log(result);
-
       generateHtml(result);
     }
   }
+
   catch (error) {
     console.log(error);
   }
-
 }
-
 getPageData();
 
 function generateHtml(result) {

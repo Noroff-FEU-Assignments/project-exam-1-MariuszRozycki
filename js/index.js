@@ -11,161 +11,146 @@ const queryString = document.location.search;
 const params = new URLSearchParams(queryString);
 const id = params.get("id");
 
-localStorage.removeItem("RECENT_POSTS");
-let recentPosts = JSON.parse(localStorage.getItem("RECENT_POSTS")) || [];
-
-async function getPageData() {
+/* First part of HOME website function getPageData */
+async function getPageData(url) {
   try {
-    const response = await fetch(pageHomeUrl);
+    const response = await fetch(url);
     const results = await response.json();
 
     for (let result of results) {
-
       renderPageHtml(result);
     }
   }
   catch (error) {
-    console.log(error);
+    homePageWrapper.innerHTML = displayError(error);
   }
 }
-getPageData();
+getPageData(pageHomeUrl);
 
 function renderPageHtml(result) {
-  homePageWrapper.innerHTML = `
-  ${result.content.rendered}
-  `;
+  homePageWrapper.innerHTML = `${result.content.rendered}`;
 }
 
-
+/* Second part of HOME website function getLastPosts - twelve posts */
 async function getLastPosts(url) {
   try {
     const response = await fetch(url);
     const results = await response.json();
-    recentPosts = results;
-    localStorage.setItem("RECENT_POSTS", JSON.stringify(recentPosts));
-    getDataFromLocalStorage();
-  }
+    slidePost.innerHTML = "";
+    let i;
+    let number = 0;
+    let indexOfPostsInSlider = 2;
 
-  catch (error) {
-    console.log(error);
-  }
-}
-getLastPosts(lastTwelvePosts);
+    for (i = 0; i < results.length; i++) {
+      const data = results[i];
 
-function getDataFromLocalStorage() {
-  let i;
-  let number = 0;
-  let indexOfPostsInSlider = 2;
-
-  for (i = 0; i < recentPosts.length; i++) {
-    const data = recentPosts[i];
-
-    if (window.innerWidth < 470) {
-      if (i > number) {
-        break;
-      }
-    }
-
-    if (window.innerWidth > 469 && window.innerWidth < 600) {
-      if (i > number + 1) {
-        break;
-      }
-    }
-
-    if (window.innerWidth >= 600) {
-      if (i > number + indexOfPostsInSlider) {
-        break;
-      }
-    }
-
-    const embeddedResult = data._embedded['wp:featuredmedia'];
-    for (const mainImage of embeddedResult) {
-      const mainImgSrc = mainImage.source_url;
-
-      renderSlider(i, data, mainImgSrc);
-    }
-
-    buttons.forEach(button => {
-      button.addEventListener("click", (e) => {
-        const offset = button.dataset.sliderButton === "next" ? 1 : -1;
-
-
-
-
-        if (i === recentPosts.length - 1) {
-          nextBtn.style.display = "none";
+      if (window.innerWidth < 470) {
+        if (i > number) {
+          break;
         }
+      }
 
-        if (offset === 1) {
-          e.preventDefault();
-          // animateToRightExit();
-          animateToRight();
-          prevBtn.style.display = "flex";
-          slidePost.innerHTML = "";
-          ++number;
-          renderDataInPosts();
-
-
+      if (window.innerWidth > 469 && window.innerWidth < 600) {
+        if (i > number + 1) {
+          break;
         }
+      }
 
-        if (offset === -1) {
-          e.preventDefault();
-          animateToLeft();
+      if (window.innerWidth >= 600) {
+        if (i > number + indexOfPostsInSlider) {
+          break;
+        }
+      }
 
-          nextBtn.style.display = "flex";
+      const embeddedResult = data._embedded['wp:featuredmedia'];
+      for (const mainImage of embeddedResult) {
+        const mainImgSrc = mainImage.source_url;
+        renderSlider(i, data, mainImgSrc);
+      }
 
-          if (window.innerWidth < 600) {
-            if (i <= 2) {
-              prevBtn.style.display = "none";
-            }
+      buttons.forEach(button => {
+        button.addEventListener("click", (e) => {
+          const offset = button.dataset.sliderButton === "next" ? 1 : -1;
+
+          if (i === results.length - 1) {
+            nextBtn.style.display = "none";
           }
 
-          if (window.innerWidth >= 600) {
-            if (i <= 4) {
-              prevBtn.style.display = "none";
-            }
+          if (offset === 1) {
+            animateToRight();
+            prevBtn.style.display = "flex";
+            slidePost.innerHTML = "";
+            ++number;
+            renderDataInPosts();
           }
 
-          slidePost.innerHTML = "";
-          --number;
+          if (offset === -1) {
+            animateToLeft();
+            nextBtn.style.display = "flex";
 
-          renderDataInPosts();
-        }
-
-        /* function renderDataInPosts() */
-        function renderDataInPosts() {
-          for (i = number; i < recentPosts.length; i++) {
-            const data = recentPosts[i];
-
-            if (window.innerWidth < 470) {
-              if (i > number) {
-                break;
+            if (window.innerWidth < 600) {
+              if (i <= 2) {
+                prevBtn.style.display = "none";
               }
             }
 
-            if (window.innerWidth > 469 && window.innerWidth < 600) {
-              if (i > number + 1) {
-                break;
+            if (window.innerWidth <= 470) {
+              if (i <= 3) {
+                prevBtn.style.display = "none";
               }
             }
 
             if (window.innerWidth >= 600) {
-              if (i > number + indexOfPostsInSlider) {
-                break;
+              if (i <= 4) {
+                prevBtn.style.display = "none";
               }
             }
 
-            const embeddedResult = data._embedded['wp:featuredmedia'];
-            for (const mainImage of embeddedResult) {
-              const mainImgSrc = mainImage.source_url;
-              renderSlider(i, data, mainImgSrc);
+            slidePost.innerHTML = "";
+            --number;
+            renderDataInPosts();
+          }
+
+          /* function renderDataInPosts() */
+          function renderDataInPosts(i) {
+            for (i = number; i < results.length; i++) {
+              const data = results[i];
+
+              if (window.innerWidth < 470) {
+                if (i > number) {
+                  break;
+                }
+              }
+
+              if (window.innerWidth > 469 && window.innerWidth < 600) {
+                if (i > number + 1) {
+                  break;
+                }
+              }
+
+              if (window.innerWidth >= 600) {
+                if (i > number + indexOfPostsInSlider) {
+                  break;
+                }
+              }
+
+              const embeddedResult = data._embedded['wp:featuredmedia'];
+              for (const mainImage of embeddedResult) {
+                const mainImgSrc = mainImage.source_url;
+                renderSlider(i, data, mainImgSrc);
+              }
             }
           }
-        }
-      });
-    })
+        });
+      })
+    }
+  }
+
+  catch (error) {
+    slidePost.innerHTML = displayError(error);
   }
 }
+getLastPosts(lastTwelvePosts);
 
 function renderSlider(i, data, mainImgSrc) {
   slidePost.innerHTML += `
@@ -189,15 +174,6 @@ function removeAnimateToRight() {
   });
 }
 
-// function removeAnimateToRightExit() {
-//   return new Promise(() => {
-//     setTimeout(() => {
-//       slidePost.classList.remove("animate-to-right-exit");
-//       nextBtn.disabled = false;
-//     }, 1000);
-//   });
-// }
-
 function removeAnimateToLeft() {
   return new Promise(() => {
     setTimeout(() => {
@@ -206,7 +182,6 @@ function removeAnimateToLeft() {
     }, 1000);
   });
 }
-
 
 async function animateToRight() {
   slidePost.classList.add("animate-to-right");
@@ -221,15 +196,3 @@ async function animateToLeft() {
   const response = await removeAnimateToLeft();
   response;
 }
-
-// async function animateToRightExit() {
-//   slidePost.classList.add("animate-to-right-exit");
-//   nextBtn.disabled = true;
-//   const response = await removeAnimateToRightExit();
-//   response;
-// }
-
-// nextBtn.onclick = (e) => {
-//   e.preventDefault();
-//   animateToRightExit();
-// }

@@ -11,13 +11,12 @@ const id = params.get("id");
 
 let flag = false;
 
-async function getAllPosts() {
+async function getAllPosts(url) {
   try {
-    const response = await fetch(allPosts);
+    const response = await fetch(url);
     const results = await response.json();
     for (let i = 0; i < 10; i++) {
       let result = results[i];
-      console.log(result);
 
       const embeddedResult = result._embedded['wp:featuredmedia'];
       for (const mainImage of embeddedResult) {
@@ -51,7 +50,7 @@ async function getAllPosts() {
     console.log(err);
   }
 }
-getAllPosts();
+getAllPosts(allPosts);
 
 
 function renderFirsPostsHtml(result, i, mainImgSrc, mainImage) {

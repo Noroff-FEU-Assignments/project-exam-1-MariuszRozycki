@@ -8,6 +8,26 @@ const emailError = document.querySelector("#email-error");
 const userMessage = document.querySelector("#user-message");
 const userMessageError = document.querySelector("#user-message--error");
 const message = document.querySelector("#message");
+const contactPageUrl = "https://mariuszrozycki.info/trip-blog/wp-json/wp/v2/pages?slug=contact";
+const h1Contact = document.querySelector("#h1-contact");
+
+async function getDataContactPage(url) {
+  try {
+    const response = await fetch(url);
+    const results = await response.json();
+
+    for (let result of results) {
+      console.log(result);
+      h1Contact.innerHTML = `
+      ${result.title.rendered}
+      `;
+    }
+  }
+  catch (error) {
+    console.log(error);
+  }
+}
+getDataContactPage(contactPageUrl);
 
 function validateForm(event) {
   event.preventDefault();

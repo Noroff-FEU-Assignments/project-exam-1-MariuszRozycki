@@ -2,7 +2,7 @@ const searchUrl = "https://mariuszrozycki.info/trip-blog/wp-json/wp/v2/";
 const searchButton = document.querySelector("#search-button");
 const searchResult = document.querySelector(".search-result");
 const searchBar = document.querySelector("#search-bar");
-
+const searchContainer = document.querySelector(".search");
 
 searchButton.addEventListener("click", search);
 
@@ -11,32 +11,46 @@ function search() {
   const tagsUrl = searchUrl + `tags?search=${searchBarValue}`;
   const postsUrl = searchUrl + "posts?_embed&per_page=100&sticky=true";
 
-  async function getData() {
-    const responseTags = await fetch(tagsUrl);
-    const resultsTags = await responseTags.json();
+  async function getData(url) {
+    searchResult.innerHTML = "";
 
-    for (let el of resultsTags) {
+    try {
+      const responseTags = await fetch(url);
+      const resultsTags = await responseTags.json();
 
-      const responsePosts = await fetch(postsUrl);
-      const resultsPosts = await responsePosts.json();
+      for (let el of resultsTags) {
+        try {
+          const responsePosts = await fetch(postsUrl);
+          const resultsPosts = await responsePosts.json();
 
-      for (let resultsPost of resultsPosts) {
-        const resultsPostTags = resultsPost.tags;
-        for (let postTag of resultsPostTags) {
-          if (el.id === postTag) {
+          for (let resultsPost of resultsPosts) {
+            const resultsPostTags = resultsPost.tags;
 
-            if (searchBarValue === "") {
-              return null;
-            } else {
-              searchResult.style.display = "block";
-              createHtml(resultsPost);
+            for (let postTag of resultsPostTags) {
+              if (el.id === postTag) {
+
+                if (searchBarValue === "") {
+                  return null;
+                }
+
+                else {
+                  searchResult.style.display = "block";
+                  createHtml(resultsPost);
+                }
+              }
             }
           }
         }
+        catch (error) {
+          searchContainer.innerHTML = displayError(error);
+        }
       }
     }
+    catch (error) {
+      searchContainer.innerHTML = displayError(error);
+    }
   }
-  getData();
+  getData(tagsUrl);
 
   function createHtml(resultsPost) {
     searchResult.innerHTML += `
@@ -48,25 +62,23 @@ function search() {
 
   searchResult.style.display = "block";
 
-  document.addEventListener("click", (event) => {
+  document.addEventListener("click", function (event) {
     if (!event.target.closest(".search-modal")) {
       searchResult.style.display = "none";
       searchResult.innerHTML = "";
     }
-  })
+  });
 }
 
 
-searchBar.addEventListener("keypress", function (event) {
+document.addEventListener("keydown", function (event) {
   if (event.key === "Enter") {
-    event.preventDefault();
     search();
   }
-});
 
-document.onkeydown = function (event) {
-  if (event.key == "Escape") {
+  if (event.key == "Escape" || event.key == "Backspace") {
     searchResult.style.display = "none";
     searchResult.innerHTML = "";
   }
-};
+});
+

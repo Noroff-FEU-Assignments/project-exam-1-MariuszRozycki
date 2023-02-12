@@ -13,7 +13,7 @@
 
 /* contact */
 .form-container {
-  max-width: 600px;
+  width: 400px;
 }
 
 form,
@@ -44,7 +44,6 @@ label {
 textarea,
 label,
 input {
-  /* width: 100%; */
   padding: 10px;
 }
 
