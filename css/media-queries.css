@@ -1,6 +1,5 @@
+/* media queries */
 @media (min-width: 470px) {
-
-  /* global */
   p {
     font-size: calc(var(--normal-font-size) + 3px);
   }

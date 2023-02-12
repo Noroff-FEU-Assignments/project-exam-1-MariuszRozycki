@@ -1,3 +1,4 @@
+/* global */
 :root {
   min-height: 100vh;
   position: relative;
@@ -147,7 +148,7 @@ main {
   }
 }
 
-.error-message p {
+p.error-message {
   margin: 30px auto;
   color: red;
   background-color: rgba(255, 0, 0, .1);
@@ -162,4 +163,5 @@ main {
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
+  z-index: 99999999999999999999999999999;
 }
