@@ -22,24 +22,28 @@ async function getPageData(url) {
     }
   }
   catch (error) {
-    homePageWrapper.innerHTML = displayError(error);
+    displayError(error);
   }
 }
 getPageData(pageHomeUrl);
 
 function renderPageHtml(result) {
-  homePageWrapper.innerHTML = `${result.content.rendered}`;
+  homePageWrapper.innerHTML = `
+  ${result.content.rendered}
+  `;
 }
 
 /* Second part of HOME website function getLastPosts - twelve posts */
 async function getLastPosts(url) {
+  let i;
+  let number = 0;
+  let indexOfPostsInSlider = 2;
+
   try {
     const response = await fetch(url);
     const results = await response.json();
+
     slidePost.innerHTML = "";
-    let i;
-    let number = 0;
-    let indexOfPostsInSlider = 2;
 
     for (i = 0; i < results.length; i++) {
       const data = results[i];
@@ -63,16 +67,18 @@ async function getLastPosts(url) {
       }
 
       const embeddedResult = data._embedded['wp:featuredmedia'];
+
       for (const mainImage of embeddedResult) {
         const mainImgSrc = mainImage.source_url;
+        console.log(mainImage);
         renderSlider(i, data, mainImgSrc);
       }
 
       buttons.forEach(button => {
-        button.addEventListener("click", (e) => {
+        button.addEventListener("click", () => {
           const offset = button.dataset.sliderButton === "next" ? 1 : -1;
-
           if (i === results.length - 1) {
+
             nextBtn.style.display = "none";
           }
 
@@ -88,13 +94,13 @@ async function getLastPosts(url) {
             animateToLeft();
             nextBtn.style.display = "flex";
 
-            if (window.innerWidth < 600) {
+            if (window.innerWidth < 470) {
               if (i <= 2) {
                 prevBtn.style.display = "none";
               }
             }
 
-            if (window.innerWidth <= 470) {
+            if (window.innerWidth >= 470 && window.innerWidth <= 600) {
               if (i <= 3) {
                 prevBtn.style.display = "none";
               }
@@ -105,17 +111,15 @@ async function getLastPosts(url) {
                 prevBtn.style.display = "none";
               }
             }
-
             slidePost.innerHTML = "";
             --number;
             renderDataInPosts();
           }
 
           /* function renderDataInPosts() */
-          function renderDataInPosts(i) {
+          function renderDataInPosts() {
             for (i = number; i < results.length; i++) {
               const data = results[i];
-
               if (window.innerWidth < 470) {
                 if (i > number) {
                   break;
@@ -135,6 +139,7 @@ async function getLastPosts(url) {
               }
 
               const embeddedResult = data._embedded['wp:featuredmedia'];
+
               for (const mainImage of embeddedResult) {
                 const mainImgSrc = mainImage.source_url;
                 renderSlider(i, data, mainImgSrc);
@@ -147,7 +152,7 @@ async function getLastPosts(url) {
   }
 
   catch (error) {
-    slidePost.innerHTML = displayError(error);
+    displayError(error);
   }
 }
 getLastPosts(lastTwelvePosts);
@@ -157,7 +162,7 @@ function renderSlider(i, data, mainImgSrc) {
       <div class="slide-post-details" onclick="location.href='../layout/details.html?id=${data.id}'">
         <h3 class="h3_post-title--heading">${data.title.rendered}</h3>
         <div class="slide-wrapper--img">
-          <img src=${mainImgSrc} alt="View over Budva">
+          <img src=${mainImgSrc} alt="${mainImgSrc.alt_text}">
         </div>
         ${data.excerpt.rendered}
         <button><a href="../layout/details.html?id=${data.id}" class="btn btn-post-slide">Read more</a></button>
