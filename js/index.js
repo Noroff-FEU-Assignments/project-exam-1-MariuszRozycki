@@ -9,6 +9,7 @@ const prevBtn = document.querySelector(".previous-arrow");
 const nextBtn = document.querySelector(".next-arrow");
 const queryString = document.location.search;
 const params = new URLSearchParams(queryString);
+const h1 = document.querySelector(".h1_main");
 const id = params.get("id");
 
 /* First part of HOME website function getPageData */
@@ -18,6 +19,7 @@ async function getPageData(url) {
     const results = await response.json();
 
     for (let result of results) {
+      h1.innerHTML = "";
       renderPageHtml(result);
     }
   }
