@@ -15,6 +15,9 @@ async function getAllPosts(url) {
   try {
     const response = await fetch(url);
     const results = await response.json();
+
+    firstPostsContainer.innerHTML = "";
+
     for (let i = 0; i < 10; i++) {
       let result = results[i];
 

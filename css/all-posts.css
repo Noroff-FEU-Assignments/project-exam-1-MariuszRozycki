@@ -36,6 +36,7 @@
  .posts .container {
    display: grid;
    justify-content: center;
+   gap: 30px;
  }
 
  .posts-container {
