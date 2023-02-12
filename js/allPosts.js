@@ -3,11 +3,11 @@ const allPosts = baseUrl + "posts?_embed&per_page=100";
 const firstPostsContainer = document.querySelector("#first-ten-posts");
 const restOfPosts = document.querySelector("#rest-of-posts");
 const btnShowMore = document.querySelector(".btn-all--posts");
-const enlargedImgWrapper = document.createElement('div');
 const body = document.querySelector("body");
 const queryString = document.location.search;
 const params = new URLSearchParams(queryString);
 const id = params.get("id");
+const posts = document.querySelector(".posts");
 
 let flag = false;
 
@@ -46,8 +46,8 @@ async function getAllPosts(url) {
       }
     });
   }
-  catch (err) {
-    console.log(err);
+  catch (error) {
+    posts.innerHTML = displayError(error);
   }
 }
 getAllPosts(allPosts);
