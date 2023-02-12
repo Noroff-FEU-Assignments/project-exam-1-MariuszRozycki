@@ -5,9 +5,11 @@
   margin: auto;
   overflow-x: hidden;
   justify-content: center;
+  grid-template-columns: 1fr;
 }
 
 .slide-post-details {
+  width: 100%;
   padding: 15px 10px;
   background-color: var(--light-blue-color);
   margin: auto;

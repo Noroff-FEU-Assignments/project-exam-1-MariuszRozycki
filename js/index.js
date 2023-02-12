@@ -157,6 +157,7 @@ async function getLastPosts(url) {
 }
 getLastPosts(lastTwelvePosts);
 
+
 function renderSlider(i, data, mainImgSrc) {
   slidePost.innerHTML += `
       <div class="slide-post-details" onclick="location.href='../layout/details.html?id=${data.id}'">
