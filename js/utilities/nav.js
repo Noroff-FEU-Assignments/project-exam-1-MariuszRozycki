@@ -6,16 +6,30 @@ const barThree = document.querySelector("#bar-three");
 const navMainList = document.querySelector(".nav-main__list");
 
 hamburgerMenu.addEventListener('click', () => {
+
+  // flag = !flag;
+
+  // console.log(flag);
   barOne.classList.toggle("bar-one");
   barTwo.classList.toggle("bar-two");
   barThree.classList.toggle("bar-three");
   navMainList.classList.toggle("show");
 
   if (document.querySelector('[title="Trip Blog || Home Page"]')) {
-    const sliderButtons = document.querySelectorAll(".slider-button");
-    sliderButtons.forEach(button => button.classList.toggle("off"));
+    sliderWrapper.classList.toggle("z-index--class");
+    // sliderButtons.forEach(button => button.classList.toggle("z-index--class"));
   }
 });
+
+// if (document.querySelector('[title="Trip Blog || Home Page"]')) {
+//   const sliderButtons = document.querySelectorAll(".slider-button");
+//   if (!flag) {
+//     sliderButtons.forEach(button => button.style.display = "none");
+//   } else {
+//     sliderButtons.forEach(button => button.style.display = "flex");
+//   }
+// }
+// });
 
 navMainList.addEventListener("click", (event) => {
   if (

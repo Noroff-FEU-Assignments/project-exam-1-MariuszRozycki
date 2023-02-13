@@ -86,3 +86,7 @@
 .active {
   color: var(--active-color);
 }
+
+.z-index--class {
+  z-index: 0;
+}
