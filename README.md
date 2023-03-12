@@ -77,7 +77,7 @@ To built this project I used:
 ### Installing
 Clone repo to check a code:<br>
 ```
-git clone https://github.com/MariuszRozycki/rainy-days
+git clone https://github.com/Noroff-FEU-Assignments/project-exam-1-MariuszRozycki.git
 ```
 
 ## Live site <br>
