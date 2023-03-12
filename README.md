@@ -66,7 +66,7 @@ To built this project I used:
 - I made a low-fidelity prototypes in AdobeXD,
 - choose fonts, colors,
 - tested low-fidelity prototypes,
-- choose picture to project and adjusted them to requirements,
+- choose pictures to project and adjusted them to requirements,
 - I made a high fidelity prototypes,
 
 ### Technical
