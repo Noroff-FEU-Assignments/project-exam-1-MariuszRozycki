@@ -7,7 +7,7 @@ WordPress is used to set a content. Data fetched from WP REST API.
 ## Description
 
 The goal of the project was to put into practice the skills learned over first year of studies. <br>
-This project is made as a semester first exam. The content for website is stored on a WordPress used as a Headless CMS. 
+This project is made as a first year exam. The content for website is stored on a WordPress used as a Headless CMS. 
 Trip Blog is using WordPress to provide an API and add content for the blog. 
 To build this blog I used pure Java Script, HTML, CSS and I made a call to the WordPress REST API to fetch the data.
 
