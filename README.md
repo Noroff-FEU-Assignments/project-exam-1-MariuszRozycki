@@ -81,6 +81,13 @@ git clone https://github.com/Noroff-FEU-Assignments/project-exam-1-MariuszRozyck
 ```
 
 ## Live site <br>
-Live site [Trip Blog Live Site](https://dynamic-twilight-02d190.netlify.app/)
+[Trip Blog Live Site](https://dynamic-twilight-02d190.netlify.app/)
+
+### Contact
+Mariusz Rozycki: <br>
+Portfolio: https://mariuszrozycki.info/portfolio <br>
+Portfolio-contact: https://mariuszrozycki.info/portfolio/layout/contact.html <br>
+Linkedin: https://www.linkedin.com/in/mariusz-rozycki <br>
+e-mail: <marius.front@gmail.com>
 
 
