@@ -22,14 +22,14 @@ here is added picture and "Lorem ipsum" text to fill up space.
 I used CSS - grid to share space between picture and text and of course to make a website responsive.
 
 3. List of blog posts -
-blog Page shows first 10 blogs. Under first 10 blogs finds "Show more" button to show rest of blog posts. 
+blog Page shows first 10 blogs. Under the first 10 blogs finds "Show more" button to show the rest of blog posts. 
 When "Show more" button is clicked, button changes innerText to "Show less". 
 After clicking "Show less" user can see again first 10 blogs.
 
 4. Blog post specific pages -
 the content of the blog specific page is dynamically build using a query string parameter based on whatever link the user clicked. 
 The title of the blog specific is changed based on the blog that has been clicked. 
-If any image on the blog post page is clicked, a modal appears that giving the user a bigger view of that image. 
+If any image on the blog post page is clicked, a modal appears that gives the user a bigger view of that image. 
 Clicking outside image closes the modal.
 
 5. Contact page -
@@ -58,15 +58,15 @@ To built this project I used:
 
 ### Preparing to project
 - as a first step I created work board on Trello, to plan whole proces of Trip Blog creation,
-- I choose theme,
+- I chose theme,
 
 ### Design 
 - I made a sketches of project on sheets of paper,
 - gave a sketches to test,
 - I made a low-fidelity prototypes in AdobeXD,
-- choose fonts, colors,
+- chose fonts, colors,
 - tested low-fidelity prototypes,
-- choose pictures to project and adjusted them to requirements,
+- chose pictures to project and adjusted them to requirements,
 - I made a high fidelity prototypes,
 
 ### Technical
