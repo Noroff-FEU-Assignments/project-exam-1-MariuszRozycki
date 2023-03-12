@@ -1,7 +1,7 @@
 # Trip Blog project exam 
 ## Live site [Trip Blog Live Site](https://dynamic-twilight-02d190.netlify.app/)
 ![trip-blog_wide-screen](https://user-images.githubusercontent.com/55709542/224534794-ed407588-0d07-478a-82a3-a5df73cab23c.jpg) <br>
-Trip Blog is a blog project made as a project exam. Blog in stored on web host. It's a headless CMS. 
+Trip Blog is a blog project made as a project exam. The Blog is stored on web host. It's a headless CMS. 
 WordPress is used to set a content. Data fetched from WP REST API.
 
 ## Description
