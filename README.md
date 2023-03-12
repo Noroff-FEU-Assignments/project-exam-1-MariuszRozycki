@@ -48,7 +48,7 @@ To built this project I used:
 - worked with Visual Studio Code
 
 ### Preparing to project
-- as a first step I created work board on Trello, to plan whole proces of Trip Blog creation,
+- as a first step I created a work board on Trello, to plan whole proces of Trip Blog creation,
 - I chose theme,
 
 ### Design 
