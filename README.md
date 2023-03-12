@@ -40,15 +40,6 @@ contact page contains four text boxes:
 * message content (is more than 25 characters long),
 * there is written JavaScript code to form validation.
 
-### Summary:
-- website is mobile responsive and looks good on all screen sizes
-- the HTML is neat and semantic, the CSS is concise and styles aren't duplicated in media queries
-- each page has a unique title, one unique h1, and meta description
-- images are below 200kb and have alt text
-- the site looks good and there's a class in the navigation telling the user which page they're on
-- text lines are kept short
-- the colors have good contrast, the text is easy to read and the site is easy for user's to navigate
-
 ## Built with
 To built this project I used:
 - HTML, CSS, JS,
@@ -64,15 +55,26 @@ To built this project I used:
 - I made a sketches of project on sheets of paper,
 - gave a sketches to test,
 - I made a low-fidelity prototypes in AdobeXD,
+- [low-fidelity prototypes link](https://xd.adobe.com/view/d3d013b5-59b5-4d6d-a9f7-1fceaed6b4f9-8683/)
 - chose fonts, colors,
 - tested low-fidelity prototypes,
 - chose pictures to project and adjusted them to requirements,
 - I made a high fidelity prototypes,
+- [high fidelity prototypes link](https://xd.adobe.com/view/9c2b8924-c967-4e13-9cfc-94a14faa8591-c978/)
 
 ### Technical
-- I started to write code in html, css,
+- I wrote code in html, css,
 - tested coded design,
-- I started to write Java Script code
+- I wrote Java Script code
+
+### Summary:
+- website is mobile responsive and looks good on all screen sizes
+- the HTML is neat and semantic, the CSS is concise and styles aren't duplicated in media queries
+- each page has a unique title, one unique h1, and meta description
+- images are below 200kb and have alt text
+- the site looks good and there's a class in the navigation telling the user which page they're on
+- text lines are kept short
+- the colors have good contrast, the text is easy to read and the site is easy for user's to navigate
 
 ### Installing
 Clone repo to check a code:<br>
